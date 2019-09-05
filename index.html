@@ -39,7 +39,7 @@ print_r($result);
 ?>      </code></pre>
       
     <h1>Ajax</h1>    
-   </pre>
+
     <pre><code class="js">  
    $( document ).ready(function() {
    let reqdata ={
@@ -63,7 +63,11 @@ print_r($result);
         $('.captcha-data').html("Request failed: " + textStatus);
     });
 });   
-   </code></pre>   
+   </code></pre> 
+    
+      <h5>JSON or HTML</h5>
+        <pre><code class="js">dataType: "HTML"</code></pre> 
+       <pre><code class="js">dataType: "JSON"</code></pre> 
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -75,6 +79,7 @@ print_r($result);
     
     hljs.initHighlightingOnLoad();
     </script>
+  
   
   </body>
 </html>
