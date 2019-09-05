@@ -25,7 +25,7 @@ single Cell			single Cell
 Boolean             booliean
 </pre>
      <pre><code class="php">    
-&lt;?php
+&lt;?PHP
 $age=array("Peter"=>"35","Ben"=>"37","Joe"=>"43");
 print_r($age);
 
@@ -68,7 +68,18 @@ print_r($result);
       <h5>JSON or HTML</h5>
         <pre><code class="js">dataType: "HTML"</code></pre> 
        <pre><code class="js">dataType: "JSON"</code></pre> 
-    </div>
+      
+      If JSON is the data type you are expecting then
+      
+       <pre><code class="php">    
+&lt;?PHP
+$data = /** whatever you're serializing **/;
+header('Content-Type: application/json');
+echo json_encode($data)
+      </code></pre> 
+      
+    <h1>JSON API</h1>
+   </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
