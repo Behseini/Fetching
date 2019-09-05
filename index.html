@@ -37,6 +37,33 @@ $result = compact("firstname", "lastname", "age");
 
 print_r($result);
 ?>      </code></pre>
+      
+    <h1>Ajax</h1>    
+   </pre>
+    <pre><code class="js">  
+   $( document ).ready(function() {
+   let reqdata ={
+                  token: token,
+                  name:null,
+                  tile:null,
+                };
+    var getdata = $.ajax({
+        type: "POST",
+        url: ".../.../.../*.php",
+        data:reqdata,
+        cache: false,
+        dataType: "HTML",
+        beforeSend: function () {},
+        success: function () {}
+    });
+    getdata.done(function (dates) {
+       console.log(dates);
+    });
+    getdata.fail(function (jqXHR, textStatus) {
+        $('.captcha-data').html("Request failed: " + textStatus);
+    });
+});   
+   </code></pre>   
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
