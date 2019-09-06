@@ -65,6 +65,29 @@ print_r($result);
 });   
    </code></pre> 
     
+
+        <h5>Getting Single Valye</h5>
+        1- MySQLi Prepeard
+        2- Simple MySQLi
+
+
+        <pre><code class="php">
+        $stmt = $conn->prepare("SELECT `email` FROM `emp` WHERE `id` = '2'");
+$stmt->execute();
+
+// here you bind value of cell in row to variable `$email`
+$stmt->bind_result($email);
+// after `fetch()` `$email` will store value of `email` cell
+$stmt->fetch();
+echo $email;
+
+$stmt->close();
+
+
+        </code></pre>
+
+
+
       <h5>JSON or HTML</h5>
         <pre><code class="js">dataType: "HTML"</code></pre> 
        <pre><code class="js">dataType: "JSON"</code></pre> 
