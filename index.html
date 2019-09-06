@@ -90,24 +90,27 @@ $stmt->close();
         2- Simple MySQLi
          <pre><code class="php">
 &lt;?PHP
-$useremail
+$useremail;
 $useremailsql  = $conn->query("SELECT `email` FROM `emp` WHERE `id` = '2'");
 
+// Getting the result as an Object
 $useremail= $useremailsql->fetch_object();
-
 echo $useremail->email;
+// Or setting an new varible
+$new = $useremail->email;
 
 
         </code></pre>
          <pre><code class="php">
 &lt;?PHP
-$useremail
+$useremail;
 $useremailsql  = $conn->query("SELECT `email` FROM `emp` WHERE `id` = '2'");
 
-$row= $useremailsql->fetch_assoc();
-
-echo $row['email'];
-
+// Getting the result as a PHP Associative Array
+$useremail = $useremailsql->fetch_assoc();
+echo $useremail['email'];
+// Or setting an new varible
+$new = $useremail['email'];
 
         </code></pre>
 
