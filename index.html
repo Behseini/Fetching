@@ -72,7 +72,8 @@ print_r($result);
 
 
         <pre><code class="php">
-        $stmt = $conn->prepare("SELECT `email` FROM `emp` WHERE `id` = '2'");
+&lt;?PHP
+$stmt = $conn->prepare("SELECT `email` FROM `emp` WHERE `id` = '2'");
 $stmt->execute();
 
 // here you bind value of cell in row to variable `$email`
