@@ -66,9 +66,9 @@ print_r($result);
    </code></pre> 
     
 
-        <h5>Getting Single Valye</h5>
+        <h5>Getting Single Value</h5>
         1- MySQLi Prepeard
-        2- Simple MySQLi
+
 
 
         <pre><code class="php">
@@ -87,7 +87,29 @@ $stmt->close();
 
         </code></pre>
 
+        2- Simple MySQLi
+         <pre><code class="php">
+&lt;?PHP
+$useremail
+$useremailsql  = $conn->query("SELECT `email` FROM `emp` WHERE `id` = '2'");
 
+$useremail= $useremailsql->fetch_object();
+
+echo $useremail->email;
+
+
+        </code></pre>
+         <pre><code class="php">
+&lt;?PHP
+$useremail
+$useremailsql  = $conn->query("SELECT `email` FROM `emp` WHERE `id` = '2'");
+
+$row= $useremailsql->fetch_assoc();
+
+echo $row['email'];
+
+
+        </code></pre>
 
       <h5>JSON or HTML</h5>
         <pre><code class="js">dataType: "HTML"</code></pre> 
