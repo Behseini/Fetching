@@ -204,6 +204,38 @@ echo json_encode($data)
 header('Access-Control-Allow-Origin: https://www.example.com')
 header('Content-Type: application/json');
 </code></pre> 
+
+        The variable $stmt is an object of the mysqli_stmt class. This class has a method called fetch() which returns a boolean (true/false). It is used only in conjunction with bind_result()
+
+$stmt = $conn->prepare('SELECT myCol, myOtherCol FROM myTable WHERE dt=?');
+$stmt->bind_param("s", $date);
+$stmt->execute();
+// The columns in SQL will be bound to the PHP variables
+$stmt->bind_result($variable1, $variable2);
+while ($stmt->fetch()) {
+    // This will fetch each record from the prepared statement one by one
+    printf ("myCol is %s and myOtherCol is %s\n", $variable1, $variable1);
+}
+$stmt->get_result() returns an object of class mysqli_result (which by the way is traversable using foreach). This class has different methods, but it doesn't have fetch() method.
+
+fetch_all() return an array of arrays. As the name suggests it returns all records from the result set at once.
+$result = $stmt->get_result();
+$allRecords = $result->fetch_all(\MYSQLI_ASSOC);
+echo json_encode($allRecords);
+fetch_array() returns each record one by one as an 1D array
+$row = $result->fetch_array();
+printf("%s (%s)\n", $row["myCol"], $row["myOtherCol"]);
+fetch_assoc() is the equivalent to fetch_array(\MYSQLI_ASSOC)
+fetch_row() is the equivalent to fetch_array(\MYSQLI_NUM)
+fetch_object() returns each record one by one as an object.
+$row = $result->fetch_object();
+printf("%s (%s)\n", $row->myCol, $row->myOtherCol);
+However, to keep it simple you can just loop on the mysqli_result directly which will get you each row as an associative array.
+
+foreach($stmt->get_result() as $row) {
+    printf("%s (%s)\n", $row["myCol"], $row["myOtherCol"]);
+}
+
    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
