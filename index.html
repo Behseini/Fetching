@@ -70,6 +70,31 @@ print_r($result);
         <h3>Binding Vs Getting the Results  </h3><small>Binding Result</small>
 
         <h3>Fetching Single Row  <small>Binding Result</small></h3>
+
+    <pre><code class="php">
+&lt;?PHP
+$SQL = "SELECT `email`, `name`, `phone` FROM `emp` WHERE `id` = ?";
+$stmt = $conn->query($SQL);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+echo  json_encode($row)
+        </code></pre>
+
+This code will return an associated array like
+      <pre><code class="js">
+{
+    "14-00":"0",
+    "14-30":"0",
+    "15-00":"0",
+    "15-30":"0",
+    "16-00":"0",
+    "16-30":"0",
+    "17-00":"0",
+    "17-30":"0"
+}
+        </code></pre>
+
         <h3>Fetching Single Row  <small>Getting Result</small></h3>
         <h3>Getting Single Value</h3>
         <h3>Getting Single Value</h3>
