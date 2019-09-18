@@ -69,7 +69,9 @@ print_r($result);
 
         <h3>Binding Vs Getting the Results  </h3><small>Binding Result</small>
 
+
         <h3>Fetching Single Row  <small>Binding Result</small></h3>
+   <h3>Fetching Single Row  <small>Getting Result</small></h3>
 
     <pre><code class="php">
 &lt;?PHP
@@ -85,9 +87,8 @@ echo  json_encode($row)
 
 This code will return an associated array like
 
-        // Using Fetch Assoc
       <pre><code class="js">
-      // Using Fetch Assoc
+  // ===============> Using Fetch Assoc
 {
     "14-00":"0",
     "14-30":"0",
@@ -98,12 +99,13 @@ This code will return an associated array like
     "17-00":"0",
     "17-30":"0"
 }
-   // Using Fetch Row
+// ===============> Using Fetch All
+   [["0","0","0","0","0","0","",""]]
+
+// ===============> Using Fetch Row
    ["0","0","0","0","0","0","0","0"]
 
         </code></pre>
-
-        <h3>Fetching Single Row  <small>Getting Result</small></h3>
         <h3>Getting Single Value</h3>
         <h3>Getting Single Value</h3>
         1- MySQLi Prepeard
