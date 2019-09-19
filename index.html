@@ -24,6 +24,37 @@ one row     		one row
 Multi       		multi --> while
 single Cell			single Cell
 Boolean             booliean
+
+
+Creating True Flase System
+
+Create an array at the top of PHP
+	$data = array("state"=> 'FALSE');
+
+Update the state based on situation
+
+	if(true){
+	  $data['state'] = 'TRUE';
+	}
+	else{
+		$data['state'] = 'FALSE';
+	}
+
+after closing you can json encode the data array like
+    $conn->close();
+    echo json_encode($data);
+	
+	
+in client side
+	<pre>
+	request.done(function (data) {
+		if(data.state ="TRUE"){	}
+		else{
+
+		}
+	});
+  </pre>
+  
 </pre>
      <pre><code class="php">    
 &lt;?PHP
